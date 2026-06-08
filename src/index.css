@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-black: #090909;
+  --color-ink: #111111;
+  --color-cream: #e9e5dd;
+  --color-muted: #9d9a93;
+  --color-gold: #c6a85b;
+  
+  --font-sans: "DM Sans", sans-serif;
+  --font-serif: "Playfair Display", serif;
+  
+  --ease-expo: cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+@layer base {
+  body {
+    @apply bg-black text-cream font-sans antialiased selection:bg-gold selection:text-black overflow-x-hidden;
+  }
+  
+  /* Custom Scrollbar for a premium feel */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-black;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-ink rounded-full border border-white/10;
+  }
+}
+
+.glass-nav {
+  @apply bg-black/40 backdrop-blur-md border-b border-white/10;
+}
