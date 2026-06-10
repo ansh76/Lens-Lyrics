@@ -16,12 +16,13 @@ export default function HeroVideo() {
       
       {/* 1. Background Video Layer (Cinematic YouTube Loop) */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <iframe
-          src="https://www.youtube.com/embed/xPOeeE0i4o4?autoplay=1&mute=1&loop=1&playlist=xPOeeE0i4o4&controls=0&showinfo=0&rel=0&iv_load_policy=3&playsinline=1&enablejsapi=1"
-          className="absolute top-1/2 left-1/2 w-[100vw] h-[56.25vw] min-h-[100vh] min-w-[177.77vh] -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-60 scale-[1.15]"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          title="Cinematic Background Video"
+        <video
+          src="/Create_an_ultra_cinematic_lux.mp4"
+          className="absolute top-1/2 left-1/2 w-[100vw] h-[56.25vw] min-h-[100vh] min-w-[177.77vh] -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-60 scale-[1.15] object-cover"
+          autoPlay
+          loop
+          muted
+          playsInline
         />
         
         {/* 2. WebGL 3D Cinematic Dust */}
