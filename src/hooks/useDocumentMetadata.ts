@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 export default function useDocumentMetadata(title: string, description?: string) {
   useEffect(() => {
-    document.title = `${title} | lens lyric.ar`;
+    document.title = `${title} | LensLyrics AR`;
     
     let metaDescription = document.querySelector('meta[name="description"]');
     if (!metaDescription) {

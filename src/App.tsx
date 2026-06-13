@@ -7,24 +7,27 @@ import Navbar from './components/layout/Navbar';
 import Preloader from './components/ui/Preloader'; 
 import ErrorBoundary from './components/ui/ErrorBoundary';
 
-// Lazy Loaded Pages for performance bundle optimization
-const Home = React.lazy(() => import('./pages/Home'));
-const Portfolio = React.lazy(() => import('./pages/Portfolio'));
-const Services = React.lazy(() => import('./pages/Services'));
-const About = React.lazy(() => import('./pages/About'));
-const Blog = React.lazy(() => import('./pages/Blog'));
-const Contact = React.lazy(() => import('./pages/Contact'));
-const NotFound = React.lazy(() => import('./pages/NotFound'));
-const CinematicGrid = React.lazy(() => import('./components/ui/CinematicGrid'));
+// Static Import for Home to eliminate initial loading screen completely
+import Home from './pages/Home';
 
-const LoadingFallback = () => (
-  <div className="min-h-screen w-full bg-black text-cream flex items-center justify-center font-sans">
-    <div className="flex flex-col items-center gap-4">
-      <div className="w-6 h-6 border-2 border-gold border-t-transparent rounded-full animate-spin" />
-      <span className="text-[10px] tracking-[0.2em] text-muted uppercase font-light">Retrieving archives...</span>
-    </div>
-  </div>
-);
+// Pre-resolve import promises for other pages to load them in parallel
+const portfolioPromise = import('./pages/Portfolio');
+const servicesPromise = import('./pages/Services');
+const aboutPromise = import('./pages/About');
+const blogPromise = import('./pages/Blog');
+const contactPromise = import('./pages/Contact');
+const notFoundPromise = import('./pages/NotFound');
+const cinematicGridPromise = import('./components/ui/CinematicGrid');
+
+const Portfolio = React.lazy(() => portfolioPromise);
+const Services = React.lazy(() => servicesPromise);
+const About = React.lazy(() => aboutPromise);
+const Blog = React.lazy(() => blogPromise);
+const Contact = React.lazy(() => contactPromise);
+const NotFound = React.lazy(() => notFoundPromise);
+const CinematicGrid = React.lazy(() => cinematicGridPromise);
+
+const LoadingFallback = () => null;
 
 export default function App() {
   const location = useLocation();
